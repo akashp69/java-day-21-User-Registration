@@ -1,10 +1,12 @@
 
 import org.junit.Assert;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 public class UserRegistrationTest {
     Boolean result;
+    @Test
+    public void givenLambdaExpressionShouldReturnTrue(){
+    }
     @Test
     public void givenFirstName_WhenProper_ShouldReturnTrue() {
         result = UserRegistration.isValidFirstName("Akash");
@@ -75,7 +77,7 @@ public class UserRegistrationTest {
     @Test
     public void givenImProperPassword1ShouldInvalidMessage() {
         try {
-            UserRegistration.isValidPassword1("Akash4");
+            UserRegistration.isValidPassword1("Akash1");
         }catch (UserRegistrationException e){
             Assert.assertEquals(UserRegistrationException.ExceptionType.INVALID_PASSWORD, e.exceptionType);
             System.out.println(e.getMessage());
@@ -90,7 +92,7 @@ public class UserRegistrationTest {
     @Test
     public void givenImProperPassword2ShouldInvalidMessage() {
         try {
-            UserRegistration.isValidPassword1("akashpakhare4");
+            UserRegistration.isValidPassword1("akashpakhare1");
         }catch (UserRegistrationException e){
             Assert.assertEquals(UserRegistrationException.ExceptionType.INVALID_PASSWORD, e.exceptionType);
             System.out.println(e.getMessage());
@@ -98,7 +100,7 @@ public class UserRegistrationTest {
     }
     @Test
     public void givenProperPassword3ShouldReturnTrue() {
-        result = UserRegistration.isValidPassword3("Akashpakhare4");
+        result = UserRegistration.isValidPassword3("Akashpakhare1");
         Assert.assertEquals(true, result);
     }
     @Test
